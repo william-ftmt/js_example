@@ -1,80 +1,75 @@
+@use 'variables';
+
+// Button mixin
+@mixin button-style($bg, $hover-bg, $color: #000) {
+  background: $bg;
+  color: $color;
+  border: none;
+  border-radius: variables.$button-radius;
+  padding: variables.$button-padding;
+  font-size: variables.$button-font;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $hover-bg;
+  }
+}
+
+// Body
 body {
-  font-family: Arial, sans-serif;
+  font-family: variables.$font-family;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f4f4f4;
+  background: variables.$body-bg;
 }
 
+// Calculator
 .calculator {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  width: 300px;
-}
+  background: variables.$calculator-bg;
+  padding: variables.$calculator-padding;
+  border-radius: variables.$calculator-radius;
+  box-shadow: variables.$calculator-shadow;
+  width: variables.$calculator-width;
 
-.display {
-  width: 100%;
-  height: 60px;
-  font-size: 1.6rem;
-  text-align: right;
-  margin-bottom: 12px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fdfdfd;
-}
+  .display {
+    width: 100%;
+    height: variables.$display-height;
+    font-size: variables.$display-font;
+    text-align: right;
+    margin-bottom: 12px;
+    padding: variables.$display-padding;
+    border: variables.$display-border;
+    border-radius: variables.$display-radius;
+    background: variables.$display-bg;
+  }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 
-button {
-  padding: 18px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #eee;
-  transition: background 0.2s;
-}
+    button {
+      @include button-style(variables.$button-bg, variables.$button-hover-bg);
 
-button:hover {
-  background: #ddd;
-}
+      &.operator {
+        @include button-style(variables.$operator-bg, variables.$operator-hover-bg, #fff);
+      }
 
-.span-2 {
-  grid-column: span 2;
-}
+      &.equal {
+        @include button-style(variables.$equal-bg, variables.$equal-hover-bg, #fff);
+        grid-row: span 2;
+      }
 
-.operator {
-  background: #2196f3;
-  color: #fff;
-}
+      &.clear {
+        @include button-style(variables.$clear-bg, variables.$clear-hover-bg, #fff);
+      }
 
-.operator:hover {
-  background: #1976d2;
-}
-
-.equal {
-  background: #4caf50;
-  color: #fff;
-  grid-row: span 2;
-}
-
-.equal:hover {
-  background: #388e3c;
-}
-
-.clear {
-  background: #f44336;
-  color: #fff;
-}
-
-.clear:hover {
-  background: #d32f2f;
+      &.span-2 {
+        grid-column: span 2;
+      }
+    }
+  }
 }

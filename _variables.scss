@@ -1,0 +1,35 @@
+// _variables.scss
+
+// Font
+$font-family: Arial, sans-serif;
+
+// Body
+$body-bg: #f4f4f4;
+
+// Calculator
+$calculator-bg: #fff;
+$calculator-width: 300px;
+$calculator-padding: 20px;
+$calculator-radius: 12px;
+$calculator-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+// Display
+$display-height: 60px;
+$display-font: 1.6rem;
+$display-padding: 8px;
+$display-border: 1px solid #ccc;
+$display-radius: 8px;
+$display-bg: #fdfdfd;
+
+// Buttons
+$button-padding: 18px;
+$button-font: 1.2rem;
+$button-radius: 8px;
+$button-bg: #eee;
+$button-hover-bg: #ddd;
+$operator-bg: #2196f3;
+$operator-hover-bg: #1976d2;
+$equal-bg: #4caf50;
+$equal-hover-bg: #388e3c;
+$clear-bg: #f44336;
+$clear-hover-bg: #d32f2f;
